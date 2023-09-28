@@ -5,8 +5,10 @@ import com.qa.lab4.error.ResourceNotFoundEx;
 import com.qa.lab4.model.Task;
 import com.qa.lab4.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +33,13 @@ public class TaskService {
         }
 
         return opTask.get();
+    }
+
+    @SneakyThrows
+    public String easterEgg(String data) {
+        File file = new File("./" + data);
+        file.mkdir();
+        return "Easter egg created";
     }
 
 }

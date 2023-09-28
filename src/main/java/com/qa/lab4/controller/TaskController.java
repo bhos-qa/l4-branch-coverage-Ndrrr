@@ -5,6 +5,7 @@ import com.qa.lab4.model.Task;
 import com.qa.lab4.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +34,11 @@ public class TaskController {
     @GetMapping("/{id}")
     public Task getById(@PathVariable Long id) {
         return taskService.getById(id);
+    }
+
+    @PatchMapping("/easteregg")
+    public String easterEgg(String data) {
+        return taskService.easterEgg(data);
     }
 
 }
